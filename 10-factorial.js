@@ -1,24 +1,21 @@
 const { argv } = require('node:process');
 
 const firstArgument = argv[2];
-const number = parseInt(firstArgument, 10);
+const number = BigInt(firstArgument);
 
-function factorial(number) {
-  if (number < 0) return undefined;
-  if (number === 0) return 1;
-  let result = 1;
+function factorial(n) {
+  if (n < 0n) return undefined;
+  if (n === 0n) return 1n;
 
-  for (let i = number; i > 0; i--) {
+  let result = 1n;
+  for (let i = n; i > 0n; i--) {
     result *= i;
   }
   return result;
 }
 
-const result = factorial(number);
+const bigResult = factorial(number);
 
-// If result is large, use scientific notation; otherwise, print normally
-if (result >= 1e21) {
-  console.log(result.toExponential(16));
-} else {
-  console.log(result.toString());
-}
+// Convert to Number (will round), format to 16 decimal places
+const formattedResult = Number(bigResult).toExponential(16);
+console.log(formattedResult);
