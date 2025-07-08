@@ -1,7 +1,7 @@
 const { argv } = require('node:process');
 
 const firstArgument = argv[2];
-const number = BigInt(firstArgument, 10);
+const number = parseInt(firstArgument, 10);
 
 function factorial(number) {
   if (number < 0) return undefined;
