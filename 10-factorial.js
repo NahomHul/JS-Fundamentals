@@ -14,6 +14,7 @@ function factorial(number) {
   return result;
 }
 
-// Convert BigInt result to float for scientific notation
 const result = factorial(number);
-console.log(Number(result).toExponential(16));
+
+// Let JS decide: fixed or scientific notation
+console.log(Number(result).toString());
