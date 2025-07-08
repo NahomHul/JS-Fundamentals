@@ -1,17 +1,19 @@
 const { argv } = require('node:process');
 
 const firstArgument = argv[2];
-const number = parseInt(firstArgument, 10);
+const number = BigInt(firstArgument);
 
 function factorial(number) {
-  if (number < 0) return undefined;
-  if (number === 0) return 1;
-  let result = 1;
+  if (number < 0n) return undefined;
+  if (number === 0n) return 1n;
 
-  for (let i = number; i > 0; i-- ) {
+  let result = 1n;
+
+  for (let i = number; i > 0n; i--) {
     result = result * i;
   }
-  return result
+
+  return result;
 }
 
-console.log(factorial(number));
+console.log(factorial(number).toString());
