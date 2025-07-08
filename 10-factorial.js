@@ -15,6 +15,4 @@ function factorial(number) {
 }
 
 const result = factorial(number);
-
-// Let JS decide: fixed or scientific notation
-console.log(Number(result).toString());
+console.log(Number(result).toExponential(16));
