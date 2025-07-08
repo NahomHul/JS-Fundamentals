@@ -14,4 +14,4 @@ function factorial(number) {
   return result
 }
 
-console.log(factorial(number));
+console.log(factorial(number).toExponential(16));
